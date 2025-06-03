@@ -1,7 +1,7 @@
 // insert_books.js - Script to populate MongoDB with sample book data
 
 // Import MongoDB client
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 // Connection URI (replace with your MongoDB connection string if using Atlas)
 const uri = 'mongodb://localhost:27017';
@@ -13,124 +13,114 @@ const collectionName = 'books';
 // Sample book data
 const books = [
   {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
+    _id: ObjectId('683ea3e43a51c9af5f2ad333'),
+    title: 'Blossoms of the Savannah',
+    author: 'Henry R. Ole Kulet',
     genre: 'Fiction',
-    published_year: 1960,
+    published_year: 2008,
+    price: 5.99,
+    in_stock: true,
+    pages: 284,
+    publisher: 'Longhorn Publishers'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad334'),
+    title: 'The River and the Source',
+    author: 'Margaret A. Ogola',
+    genre: 'Historical Fiction',
+    published_year: 1994,
+    price: 6.99,
+    in_stock: true,
+    pages: 370,
+    publisher: 'East African Educational Publishers'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad335'),
+    title: 'Siku Njema',
+    author: 'Ken Walibora',
+    genre: 'Swahili Fiction',
+    published_year: 1996,
+    price: 4.99,
+    in_stock: false,
+    pages: 198,
+    publisher: 'Longhorn Publishers'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad336'),
+    title: 'Facing Mount Kenya',
+    author: 'Jomo Kenyatta',
+    genre: 'Cultural Anthropology',
+    published_year: 1938,
+    price: 8.49,
+    in_stock: true,
+    pages: 319,
+    publisher: 'Heinemann'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad337'),
+    title: 'Kufa Kuzikana',
+    author: 'Ken Walibora',
+    genre: 'Swahili Drama',
+    published_year: 2003,
+    price: 4.49,
+    in_stock: true,
+    pages: 210,
+    publisher: 'Phoenix Publishers'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad338'),
+    title: 'Sapiens',
+    author: 'Yuval Noah Harari',
+    genre: 'Non-fiction',
+    published_year: 2014,
+    price: 15.99,
+    in_stock: true,
+    pages: 498,
+    publisher: 'Harper'
+  },
+  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad339'),
+    title: 'The Martian',
+    author: 'Andy Weir',
+    genre: 'Science Fiction',
+    published_year: 2011,
     price: 12.99,
     in_stock: true,
-    pages: 336,
-    publisher: 'J. B. Lippincott & Co.'
+    pages: 369,
+    publisher: 'Crown Publishing Group'
   },
   {
-    title: '1984',
-    author: 'George Orwell',
-    genre: 'Dystopian',
-    published_year: 1949,
+    _id: ObjectId('683ea3e43a51c9af5f2ad33a'),
+    title: 'Dune',
+    author: 'Frank Herbert',
+    genre: 'Science Fiction',
+    published_year: 1965,
     price: 10.99,
-    in_stock: true,
-    pages: 328,
-    publisher: 'Secker & Warburg'
-  },
-  {
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    genre: 'Fiction',
-    published_year: 1925,
-    price: 9.99,
-    in_stock: true,
-    pages: 180,
-    publisher: 'Charles Scribner\'s Sons'
-  },
-  {
-    title: 'Brave New World',
-    author: 'Aldous Huxley',
-    genre: 'Dystopian',
-    published_year: 1932,
-    price: 11.50,
     in_stock: false,
-    pages: 311,
-    publisher: 'Chatto & Windus'
+    pages: 412,
+    publisher: 'Chilton Books'
   },
   {
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1937,
-    price: 14.99,
-    in_stock: true,
-    pages: 310,
-    publisher: 'George Allen & Unwin'
-  },
-  {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    genre: 'Fiction',
-    published_year: 1951,
-    price: 8.99,
-    in_stock: true,
-    pages: 224,
-    publisher: 'Little, Brown and Company'
-  },
-  {
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    genre: 'Romance',
-    published_year: 1813,
+    _id: ObjectId('683ea3e43a51c9af5f2ad33b'),
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    genre: 'Classic',
+    published_year: 1960,
     price: 7.99,
     in_stock: true,
-    pages: 432,
-    publisher: 'T. Egerton, Whitehall'
+    pages: 281,
+    publisher: 'J.B. Lippincott & Co.'
   },
   {
-    title: 'The Lord of the Rings',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1954,
-    price: 19.99,
-    in_stock: true,
-    pages: 1178,
-    publisher: 'Allen & Unwin'
-  },
-  {
-    title: 'Animal Farm',
-    author: 'George Orwell',
-    genre: 'Political Satire',
-    published_year: 1945,
-    price: 8.50,
-    in_stock: false,
-    pages: 112,
-    publisher: 'Secker & Warburg'
-  },
-  {
+    _id: ObjectId('683ea3e43a51c9af5f2ad33c'),
     title: 'The Alchemist',
     author: 'Paulo Coelho',
-    genre: 'Fiction',
-    published_year: 1988,
-    price: 10.99,
-    in_stock: true,
-    pages: 197,
-    publisher: 'HarperOne'
-  },
-  {
-    title: 'Moby Dick',
-    author: 'Herman Melville',
     genre: 'Adventure',
-    published_year: 1851,
-    price: 12.50,
+    published_year: 1988,
+    price: 9.49,
     in_stock: false,
-    pages: 635,
-    publisher: 'Harper & Brothers'
-  },
-  {
-    title: 'Wuthering Heights',
-    author: 'Emily Brontë',
-    genre: 'Gothic Fiction',
-    published_year: 1847,
-    price: 9.99,
-    in_stock: true,
-    pages: 342,
-    publisher: 'Thomas Cautley Newby'
+    pages: 208,
+    publisher: 'HarperOne'
   }
 ];
 
@@ -185,7 +175,7 @@ insertBooks().catch(console.error);
  *    db.books.find()
  *
  * 2. Find books by a specific author:
- *    db.books.find({ author: "George Orwell" })
+ *    db.books.find({ author: "Yuval Noah Harari" })
  *
  * 3. Find books published after 1950:
  *    db.books.find({ published_year: { $gt: 1950 } })

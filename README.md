@@ -45,3 +45,23 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 - [MongoDB Documentation](https://docs.mongodb.com/)
 - [MongoDB University](https://university.mongodb.com/)
 - [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+
+
+## My MongoDB Setup Instructions
+
+### ✅ Environment
+- **MongoDB version**: 6.x (installed locally)
+- **Node.js version**: v18.x
+- **Operating System**: Windows 10
+
+---
+
+### 🧩 MongoDB Setup (Local)
+
+1. Installed MongoDB Community Edition from:  
+   👉 https://www.mongodb.com/try/download/community
+
+2. Confirmed MongoDB service is running with:
+
+   ```bash
+   mongod
